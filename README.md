@@ -4,21 +4,13 @@ a docker for go-shadowsocks2 https://github.com/cloverzrg/shadowsocks-go-docker/
 # Example
 
 ## server
-docker run --restart=always -dt -p 8490:8490 -e SS_CONFIG=ss://AEAD_CHACHA20_POLY1305:your-password@:8490  justcy/shadowsocks2 -s "ss://AEAD_CHACHA20_POLY1305:your-password@:8490"
-
-或者 
-
-docker run --restart=always -dt -p 8490:8490 justcy/shadowsocks2 -s "ss://AEAD_CHACHA20_POLY1305:your-password@:8490"
+docker run --restart=always -dt -p 8488:8488 justcy/shadowsocks2 -s "ss://AEAD_CHACHA20_POLY1305:your-password@:8488"
 
 ## client
-
-docker run --restart=always -dt -p 8490:8490 -e SS_CONFIG=ss://AEAD_CHACHA20_POLY1305:your-password@[server_address]:8490  justcy/shadowsocks2 -socks :1080 -u -udptun :8053=8.8.8.8:53,:8054=8.8.4.4:53 -tcptun :8053=8.8.8.8:53,:8054=8.8.4.4:53
-
-或者 
-
-docker run --restart=always -dt -p 8490:8490 justcy/shadowsocks2:client -c 'ss://AEAD_CHACHA20_POLY1305:your-password@[server_address]:8488' \
+docker run --restart=always -dt -p 1080:8488 justcy/shadowsocks2:client -c 'ss://AEAD_CHACHA20_POLY1305:your-password@[server_address]:8488' \
     -verbose -socks :1080 -u -udptun :8053=8.8.8.8:53,:8054=8.8.4.4:53 \
                              -tcptun :8053=8.8.8.8:53,:8054=8.8.4.4:53
+注意：镜像默认统一对外暴露 8488 端口，可使用 环境变量  PORT 更改
 
 其他参数 
 
