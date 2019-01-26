@@ -14,7 +14,7 @@ docker run --restart=always -dt -p 1080:8488 justcy/shadowsocks2:client -c 'ss:/
 
 其他参数 
 
-'''
+```
 Usage of ./sserver:
   -c string
         client connect address or url
@@ -43,4 +43,4 @@ Usage of ./sserver:
         (client-only) UDP tunnel (laddr1=raddr1,laddr2=raddr2,...)
   -verbose
         verbose mode
-'''
+```
