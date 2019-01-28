@@ -1,2 +1,2 @@
 #!/bin/bash
-/shadowsocks2 $@
+/shadowsocks2 
